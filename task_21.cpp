@@ -1,34 +1,39 @@
 #include <iostream>
-    int get_arr_size();
-	void output(bool , bool );          //check and print output.
-	bool up(int* , int);				// check if ascending. 
-	bool down(int* , int );				//check if descending. 
+    int input_check();			//Inputting and checking value.
+	void output(bool , bool );      //check and print output.
+	bool up(int* , int);		// check if ascending. 
+	bool down(int* , int );		//check if descending. 
 
 int main() {
 
-int n=get_arr_size();
-	std::cout<<n<<"   input a array content"<<std::endl;
+	std::cout<<"Input a array size"<<std::endl;
+	int n=input_check();
+	std::cout<<"Input a array content"<<std::endl;
 	int *ar=new int [n];
 	for (int i = 0; i < n; i++) {
-		std::cin >> ar[i];
+		ar[i]=input_check();
 	}
 	bool upe= up(ar, n); 
 	bool downe=down(ar, n);
 
 	output(upe, downe);	
 		delete[] ar;
+		return 0;
 }
-	int get_arr_size(){
+
+	int input_check(){
 		int n;
-		std::cout<<" input a array size"<<std::endl;
 		std::cin >> n;
 		if(!std::cin.fail()&&n>0){
-		return n;
+					return n;
+		}else if(!std::cin.fail()&&n<=0){
+			std::cout<<"Please input a value > 0"<<std::endl;
+			return input_check(); 	//recursion call
 		}else{
 			std::cin.clear(); 
   			std::cin.ignore(32767,'\n');
-			std::cout<<" input a value > 0"<<std::endl;
-			get_arr_size();
+			std::cout<<"Please input a number "<<std::endl;
+			return input_check();	//recursion call
 		}
 	}
 
