@@ -25,7 +25,7 @@ int main() {
 		int n;
 		std::cin >> n;
 		if(!std::cin.fail()&&n>0){
-					return n;
+			return n;
 		}else if(!std::cin.fail()&&n<=0){
 			std::cout<<"Please input a value > 0"<<std::endl;
 			return input_check(); 	//recursion call
