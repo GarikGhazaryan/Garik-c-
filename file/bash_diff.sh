@@ -2,7 +2,7 @@
 
 if diff gold.txt output.txt;
 then
-  echo "true"
+  echo "pass"
 else
-  echo "false"
+  echo "fail"
 fi
