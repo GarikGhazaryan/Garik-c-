@@ -3,7 +3,7 @@
 #include <string>
 
 
-int main() {
+int main(int argc, char* argv[]) {
 
 	std::ifstream input("input.txt"); 			// open the input file for reading
     if (!input.is_open()) {
@@ -16,8 +16,8 @@ int main() {
 			std::cout << "Unable to open output file" << std::endl;
         return 1;
     }
-	
-
+		
+	if (argc>1 && std::string(argv[1])=="-t") {   //	test mode
 	std::string line;
     while (getline(input, line)) { 		//read the file step by step
     	try{
@@ -48,5 +48,32 @@ int main() {
 	}
     input.close();
     output.close();
+	}else{					//user input mode
+			int num;
+			bool end= true;
+			while (end) 
+		  	{
+    			std::cout << "Enter a number	";
+    			int num;
+   				std::cin >> num;
+
+    				if (std::cin.fail()) // if extraction fails
+    				{
+						std::cout<<"Please input a integer type data"<<std::endl;
+        				std::cin.clear(); 
+        				std::cin.ignore(32767,'\n');
+    				}
+    				else{	 //	if data is correct 
+        				int tmp=0;
+        				while (num != 0) {
+           				int miavor = num % 10;
+           				num =num/10;
+           				tmp = (tmp*10+ miavor)*10;
+        				}
+						end= false;
+           				std::cout <<"Output data is         "<<tmp << std::endl;
+					}
+			}
+	}
     return 0;
 }
