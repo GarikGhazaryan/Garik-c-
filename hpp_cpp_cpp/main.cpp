@@ -15,6 +15,9 @@ int main() {
 	ar.set_el(221);
 	ar.set_el(222);
 	ar.set_el(222);
+	ar.dell_el();
+	ar.set_el(2992);
+	ar.set_el(2992);
 	ar.print();
 
     return 0;

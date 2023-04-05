@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "smart_array.h"
 
 
@@ -28,6 +29,7 @@
 	}
 
 	void SmartArray::dell_el(){
+	//	assert(size>=0);
 		size--;
 	}
 
@@ -36,11 +38,8 @@
     		for (int i = 0; i < size; i++) {
         		std::cout << arr[i]<< " ";
 		}
-	std::cout<<std::endl;
+		std::cout<<std::endl;
 		}else{
 			std::cout<<"array is empty"<<std::endl;
 		}
     }
-	
-
-

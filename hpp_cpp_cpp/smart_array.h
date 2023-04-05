@@ -6,6 +6,8 @@ private:
 
 public:
 	SmartArray();
+	~SmartArray();
 	void set_el(int el);
 	void dell_el();
 	void print();
+};
