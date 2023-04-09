@@ -21,6 +21,12 @@ public:
 	//method removes the given element from the array.
 	void remove(int el);
 
+	//copy constructor copies an array from an old array
+	SmartArray(const SmartArray& other);
+
+	//operator [] is defined to access an array member by index.
+	int& operator[](int index);
+
 	//method removes an element from the end of an array.
 	void dell_el();
 	
