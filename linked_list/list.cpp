@@ -62,9 +62,10 @@
 	//Overloading is an index access operator
 	//the index of the first element starts from 0
 	int & List::operator[](int index) {
-
-		assert(index>=0&&index<=size-1);
-
+		if (index < 0 || index >= size) {
+			throw std::out_of_range("Index out of range");
+		}
+		
 		Node* current = first;
 		for (int i = 0; i < index; i++) {
 			current = current->next;
@@ -76,10 +77,10 @@
 	//index must be between 0 and max sheet size,
 
 	void List::insert(int data, int pos){
-
-		assert(pos<=get_size());
-		assert(pos>=0);
-
+		if (pos < 0 || pos > size) {
+			throw std::out_of_range("error from //insert// Index out of range");
+		}
+		
 		Node* nn = new Node();
 		nn->data= data;
 		if (pos==0){
@@ -104,10 +105,13 @@
 
 	int List::remove_by_index(int index){
 		if (first==nullptr){
-			//return -1;
-			throw std::runtime_error("error from //remove_by_index//, the list is empty");
+			throw std::runtime_error("error from //remove_by_index//, list is empty");
 		}
-
+		
+		if (index < 0 || index >= size) {
+			throw std::out_of_range("error from //remove_by_index//, Index out of range");
+		}
+		
 		if(index==0){
 			Node* tmp =first;
 			first=first->next;
@@ -181,6 +185,7 @@
 	
 	//method removes the last element from the list and returns its value.
 	int List::pop_back(){
+	
 		if(first==nullptr){
 			throw std::runtime_error("error from //pop_back//, the list is empty");
 		}
@@ -210,11 +215,12 @@
 	//destructor 
 	//iterates through the sheet element by element, remembers the next element and deletes the current element
 	List::~List() {
+	
 		Node* del = first;
 		while (del != nullptr) {
 			Node* last = del->next;
 			delete del;
-//			std::cout<<"dest"<<std::endl;
+			//std::cout<<"dest"<<std::endl;
 			del = last;
 		}
 	}

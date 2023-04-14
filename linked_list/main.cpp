@@ -64,9 +64,11 @@ int main() {
 
 } catch (std::runtime_error& e) {
     std::cerr << e.what() << std::endl;
-}
-}
 
+} catch (std::out_of_range& e) {
+    std::cerr << e.what() << std::endl;
+}
+}
 
 
 
