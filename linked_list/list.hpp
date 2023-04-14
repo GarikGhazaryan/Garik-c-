@@ -44,4 +44,13 @@ class List {
 	// if returned 1 there is no this element in the sheet
 	bool remove_by_value(int val, bool flag);
 
+	//method removes the last element from the list and returns its value.
+	int pop_back();
+
+	//destructor
+	//iterates through the sheet element by element, remembers the next element and deletes the current element
+	~List();
+
+	//copy constructor.
+	List(const List& other);
 };

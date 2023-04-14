@@ -5,7 +5,7 @@
 
 	// constructor 
 	List::List() {
-        first=nullptr;
+        	first=nullptr;
 		size=0;
 	}
 
@@ -104,7 +104,8 @@
 
 	int List::remove_by_index(int index){
 		if (first==nullptr){
-			return -1;
+			//return -1;
+			throw std::runtime_error("error from //remove_by_index//, the list is empty");
 		}
 
 		if(index==0){
@@ -176,4 +177,65 @@
 			return 1;
 		}
 		return 0;
+	}
+	
+	//method removes the last element from the list and returns its value.
+	int List::pop_back(){
+		if(first==nullptr){
+			throw std::runtime_error("error from //pop_back//, the list is empty");
+		}
+
+		int val;
+		if(first->next==nullptr){
+			val=first->data;
+			delete first;
+			first = nullptr;
+			size--;
+			return val;
+		}
+
+		Node* predel=first;
+		Node* del =first->next;
+		while(del->next!=nullptr){
+			predel=del;
+			del=del->next;
+		}
+		val=del->data;
+		delete del;
+		predel->next=nullptr;
+		size--;
+		return val;
+	
+	}
+	//destructor 
+	//iterates through the sheet element by element, remembers the next element and deletes the current element
+	List::~List() {
+		Node* del = first;
+		while (del != nullptr) {
+			Node* last = del->next;
+			delete del;
+//			std::cout<<"dest"<<std::endl;
+			del = last;
+		}
+	}
+
+	//copy constructor
+	List::List(const List& other) {
+		size=other.size;
+		if (other.first == nullptr) {
+			first = nullptr;
+		} else {
+
+			first = new Node();
+			first->data=other.first->data;
+
+			Node* curr = first;
+			Node* otherCurr = other.first->next;
+			while (otherCurr!= nullptr) {
+				curr->next = new Node();
+				curr->next->data=otherCurr->data;
+				curr = curr->next;
+				otherCurr = otherCurr->next;
+			}
+		}
 	}

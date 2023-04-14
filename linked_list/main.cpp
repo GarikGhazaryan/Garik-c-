@@ -3,10 +3,13 @@
 #include <cassert>
 
 int main() {
+
+	try {
     List l;
 	assert(l.get_size()==0);  //here size should be 0
 	std::cout<<l.is_empty()<<std::endl;
-	std::cout<<l.remove_by_index(0)<<std::endl;
+	//l.pop_back();
+	//std::cout<<l.remove_by_index(0)<<std::endl;
 	l.push_back(111);
 	l.push_back(222);
 	std::cout<<l.is_empty()<<std::endl;
@@ -39,6 +42,43 @@ int main() {
 	std::cout<<l.remove_by_value(777,0)<<std::endl;
 	std::cout<<l.remove_by_value(555,1)<<std::endl;
 	l.print();
+	l.pop_back();
+	l.pop_back();
+	l.pop_back();
+	l.print();
+
+	std::cout<<"----------"<<std::endl;
+
+	List copy(l);
+
+	copy.print();
+	copy.pop_back();
+	copy.pop_back();
+	copy.push_back(12345);
+	copy.print();
+	std::cout<<"----------"<<std::endl;
+	l.print();
 
     return 0;
+
+
+} catch (std::runtime_error& e) {
+    std::cerr << e.what() << std::endl;
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
