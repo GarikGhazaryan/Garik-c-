@@ -8,7 +8,7 @@ int main(){
 	q.push(333);
 	q.push(444);
 	q.push(555);
-	q.push(666);
+	q.push(966);
 	q.push(777);
 	q.push(888);
 	q.print();

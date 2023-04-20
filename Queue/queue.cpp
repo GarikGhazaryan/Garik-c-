@@ -1,7 +1,7 @@
 #include <iostream>
 #include "queue.hpp"
 
-Queue::Queue(){
+	Queue::Queue(){
 		first=nullptr;
 		last=nullptr;
 	}
