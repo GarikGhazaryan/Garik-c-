@@ -4,7 +4,7 @@ class List {
 
 	private:
     	Node* first;
-		int size;
+	int size;
 	public:
 	
 	// constructori. defines to the pointer the first element of the null pointer
