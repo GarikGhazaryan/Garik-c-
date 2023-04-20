@@ -9,6 +9,7 @@ int main(){
 	s.push(4);
 	s.push(5);
 	s.push(6);
+	s.push(54);
 	s.print();
 	std::cout<<"-------------"<<std::endl;
 	std::cout<<"is_empty  "<<s.is_empty()<<std::endl;
