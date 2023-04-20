@@ -24,9 +24,11 @@
 	void Queue::push(int data){
 		Node* newNode = new Node(data);
 		if (first==nullptr){
-			first=last=newNode;
+			last=newNode;
+			first=last;
 		}else{
-			last=last->next=newNode;
+			last->next=newNode;
+			last=last->next;
 		}
 	}
 
