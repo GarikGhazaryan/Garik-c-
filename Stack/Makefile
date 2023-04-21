@@ -25,4 +25,3 @@ clean:
 .PHONY: test
 test: $(EXE_FILE)
 	./$(EXE_FILE)
-
