@@ -1,4 +1,4 @@
-export EXE_FILE := Queuee 
+export EXE_FILE := Queue 
 export SOURCE_FILES := $(wildcard *.cpp)
 export DEP_FOLDER := DEPS
 export OBJ_FILES := $(patsubst %.cpp, %.o, $(SOURCE_FILES))
