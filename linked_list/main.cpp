@@ -58,16 +58,14 @@ int main() {
 	copy.print();
 	std::cout<<"----------"<<std::endl;
 	l.print();
-
-    return 0;
-
-
+   
 } catch (std::runtime_error& e) {
     std::cerr << e.what() << std::endl;
 
 } catch (std::out_of_range& e) {
     std::cerr << e.what() << std::endl;
 }
+return 0;
 }
 
 
