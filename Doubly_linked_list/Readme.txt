@@ -15,7 +15,9 @@ There are several methods for working with a sheet.
   print() - 		  	 prints a list.
   insert(data , index) - adds an element by index to any place in the list.
   operator [ ] - 		 provides access by index to any element of the list and allows its editing.
-  reverse()- 			 method rearranges the sheet in reverse order, the end of the sheet becomes before and before the end.
+  reverse() - 			 method rearranges the sheet in reverse order, the end of the sheet becomes before and before the end.
+  bubblesort() -         this method sorts the list by comparing and, if necessary, swapping adjacent elements.
+  insertionsort() - this method sorts the list, each element is shifted until the value of the next element is greater than the value of that element.
 
 
 Compiling and running the program is done using Makefile commands.

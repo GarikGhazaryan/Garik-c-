@@ -128,10 +128,10 @@ public:
 	
 	//prints the value of the sheet elements
 	void print() {
-		Node<T>* current = first;
-		while (current != nullptr) {
-			std::cout << current->data << " ";
-			current = current->next;
+		Node<T>* curr = first;
+		while (curr != nullptr) {
+			std::cout << curr->data << " ";
+			curr = curr->next;
 		}
 		std::cout << std::endl;
 		std::cout <<"size "<<m_size<< std::endl;
@@ -198,5 +198,78 @@ public:
 		}
 		last=first;
 		first=pre;
+	}
+	
+	//This method sorts the list by comparing and, if necessary, swapping adjacent elements.
+	void bubblesort() {
+		if (m_size <= 1) {
+			throw std::runtime_error("error from //bubblesort//, nothing to sorting");
+		}
+
+		bool swapped=true;
+		while (swapped) {
+			swapped=false;
+			Node<T>* curr=first;
+
+			while (curr->next!=nullptr) {
+				if (curr->data>curr->next->data) {
+
+					T temp=curr->data;
+					curr->data=curr->next->data;
+					curr->next->data=temp;
+					swapped=true;
+				}
+				curr=curr->next;
+			}
+		}
+	}
+
+	//This method sorts the list, each element is shifted until the value of the next element is greater than the value of that element.
+	void insertionsort(){
+		Node<T>* sorted = nullptr;
+		Node<T>* curr = first;
+		Node<T>* lst = last; 
+	
+		while (curr != nullptr) {
+			Node<T>* nextnode = curr->next;
+
+			if (sorted == nullptr || sorted->data > curr->data) {
+				curr->next = sorted;
+
+				if (sorted != nullptr) {
+					sorted->prev = curr;
+				}
+
+				sorted = curr;
+				sorted->prev = nullptr;
+
+			} else {
+				Node<T>* temp = sorted;
+				while (temp->next != nullptr && temp->next->data < curr->data) {
+					temp = temp->next;
+				} 
+
+				curr->next = temp->next;
+				curr->prev = temp;
+
+				if (temp->next != nullptr) {
+					temp->next->prev = curr;
+				}
+
+				temp->next = curr;
+
+				if(temp->next != nullptr){
+					last=temp->next;
+				}
+
+				if(lst->data<last->data){
+					lst=last;
+				}
+				//std::cout<<temp->next->data<<std::endl;
+			}
+			curr = nextnode;
+		}
+    	first = sorted;
+		last=lst;
 	}
 };
