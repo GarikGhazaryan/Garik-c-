@@ -269,7 +269,17 @@ public:
 			}
 			curr = nextnode;
 		}
-    	first = sorted;
+    		first = sorted;
 		last=lst;
 	}
 };
+
+
+
+
+
+
+
+
+
+
